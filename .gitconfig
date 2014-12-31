@@ -1,0 +1,77 @@
+[alias]
+	#  for smaller changesets history will stay cleaner with rebase
+	pullr = pull --rebase
+	# change the last commit message
+	amend = commit --amend
+	# see project state
+	st = status
+	# commit
+	ci = commit
+	# work in a branch
+	br = branch
+	# do a checkout
+	co = checkout
+	# do a diff
+	df = diff
+	# who work on this projet repository
+	who = shortlog -sne
+	# undo the last commit
+	undo = reset --soft HEAD^
+	# command ls in the git reposotiry
+	ls = ls-files
+	# see the current branch on form of graph
+	lol = log --graph --decorate=full --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	# see all branchs in form of graph
+	lola = log --graph --decorate=full --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative --all
+	# what's new on the distant branch
+	whatsnew = "!git diff origin/$(git currentbranch)...HEAD"
+	# what's coming on the distant branch
+	whatscoming = "!git diff HEAD...origin/$(git currentbranch)"
+	# see the current branch
+	currentbranch = "!git branch | grep \"^\\*\" | cut -d \" \" -f 2"
+[log]
+	decorate = full
+[core]
+	quotepath = false
+	filemode = false
+	whitespace=fix,-indent-with-non-tab,trailing-space,cr-at-eol
+	autocrlf = false
+[color]
+	ui = true
+	branch = auto
+	diff = auto
+	grep = always
+	status = auto
+	interactive = auto
+[color "diff"]
+	meta = black bold	
+	frag = magenta bold
+	old = red
+	new = green	
+	commit = magenta
+	whitespace = white reverse
+[color "status"]
+	untracked = cyan reverse
+	branch = magenta
+	header = normal bold
+	added = magenta yellow
+	updated = green reverse
+	changed = red bold
+	nobranch = red white bold
+[color "grep"]
+	context = normal
+	filename = magenta
+	function = normal
+	linenumber = green
+	match = red
+	selected = normal
+	separator = normal
+[color "branch"]
+	current = yellow black
+	local = yellow
+	remote = magenta
+	plain = normal
+[color "interactive"]
+	prompt = normal
+	header = normal
+	help = normal
